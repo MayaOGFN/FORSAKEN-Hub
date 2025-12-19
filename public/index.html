@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Railway Devs | Train City</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #111; color: white; overflow-x: hidden; }
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f0f; color: white; overflow-x: hidden; }
         
         /* Intro Overlay */
         #intro {
@@ -14,21 +14,31 @@
             justify-content: center; align-items: center; z-index: 9999;
             transition: opacity 1s ease;
         }
-        .fade-text { font-size: 2rem; opacity: 0; animation: fadeInOut 4s forwards; }
+        .fade-text { font-size: 2.5rem; font-weight: bold; text-align: center; opacity: 0; animation: fadeInOut 4s forwards; }
         #enter-btn { 
-            margin-top: 20px; padding: 10px 25px; background: #e63946; 
-            border: none; color: white; cursor: pointer; display: none; 
+            margin-top: 25px; padding: 15px 40px; background: #e63946; border-radius: 5px;
+            border: none; color: white; cursor: pointer; display: none; font-weight: bold; letter-spacing: 1px;
+            transition: transform 0.2s;
         }
+        #enter-btn:hover { transform: scale(1.05); background: #f94144; }
 
         /* Main Site Content */
-        .content { padding: 50px; text-align: center; display: none; }
-        .logo { width: 150px; border-radius: 50%; border: 3px solid #e63946; }
+        .content { padding: 40px 20px; text-align: center; display: none; max-width: 900px; margin: auto; }
+        .logo { width: 160px; height: 160px; border-radius: 50%; border: 4px solid #e63946; margin-bottom: 20px; box-shadow: 0 0 20px rgba(230, 57, 70, 0.4); }
+        
+        /* Feature Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { background: #1a1a1a; padding: 20px; border-radius: 12px; border-left: 4px solid #e63946; text-align: left; }
+        .card h3 { margin-top: 0; color: #e63946; }
+        
+        .badge { background: #555; font-size: 10px; padding: 3px 8px; border-radius: 10px; vertical-align: middle; }
+        .play-button { display: inline-block; margin-top: 40px; padding: 15px 30px; background: #0074e4; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
 
         @keyframes fadeInOut {
-            0% { opacity: 0; }
-            40% { opacity: 1; }
-            60% { opacity: 1; }
-            100% { opacity: 0; }
+            0% { opacity: 0; transform: translateY(10px); }
+            40% { opacity: 1; transform: translateY(0); }
+            60% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-10px); }
         }
     </style>
 </head>
@@ -41,28 +51,47 @@
 
     <div class="content" id="main-site">
         <img src="https://i.imgur.com/8mX5ZpT.png" alt="Railway Devs Logo" class="logo">
-        <h1>Railway Devs Site</h1>
-        <hr style="width:50%; border: 1px solid #333;">
+        <h1>Railway Devs</h1>
+        <p style="color: #aaa;">Official Home of Train City</p>
         
-        <h2>✦ Train City: Australian Train Exploration ✦</h2>
-        <p>Welcome to the ultimate hub for Australian rail fans on Roblox.</p>
-        <div style="max-width: 600px; margin: auto; text-align: left; background: #222; padding: 20px; border-radius: 10px;">
-            <p><strong>Explore:</strong> Realistic Australian landscapes and rail networks.</p>
-            <p><strong>Operate:</strong> Authentic Aussie locomotives and rolling stock.</p>
-            <p><strong>Community:</strong> Join the Railway Devs to help shape the future of Train City!</p>
+        <hr style="width:100px; border: 2px solid #e63946; margin: 30px auto;">
+        
+        <h2>( ✦ ) Train City - Australian Train Exploration</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>🚆 Look at Trains</h3>
+                <p>Observe highly detailed Australian locomotives and rolling stock in action across the network.</p>
+            </div>
+            <div class="card">
+                <h3>🚗 Drive Cars</h3>
+                <p>Not just for rail fans! Take the wheel and explore the open roads surrounding the tracks.</p>
+            </div>
+            <div class="card">
+                <h3>🥤 Work at Cola Factory</h3>
+                <p>Earn your way by helping out at the local Cola Factory and keeping the economy moving.</p>
+            </div>
+            <div class="card">
+                <h3>🚧 Train Crossings</h3>
+                <p>Experience realistic NSW & Queensland crossings. <br><strong>More locations soon!</strong> <span class="badge">COMING SOON</span></p>
+            </div>
         </div>
-        <br>
-        <a href="https://www.roblox.com/games/16954252018/" target="_blank" style="color: #e63946; text-decoration: none; font-weight: bold;">PLAY ON ROBLOX</a>
+
+        <a href="https://www.roblox.com/games/16954252018/" target="_blank" class="play-button">PLAY TRAIN CITY ON ROBLOX</a>
+        
+        <footer style="margin-top: 60px; color: #444; font-size: 12px;">
+            © 2025 Railway Devs Community
+        </footer>
     </div>
 
     <script>
         const introText = document.getElementById('intro-text');
         const enterBtn = document.getElementById('enter-btn');
 
-        // Change text after 4 seconds and show button
+        // Logic to switch text and show button
         setTimeout(() => {
-            introText.innerText = "Railway Devs Site";
             introText.style.animation = "none";
+            introText.innerText = "Railway Devs Site";
             introText.style.opacity = "1";
             enterBtn.style.display = "block";
         }, 4000);
